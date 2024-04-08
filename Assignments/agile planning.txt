@@ -1,0 +1,117 @@
+Project Name: Online Movie Ticket Booking Feature Enhancement
+
+Project Goal: To improve the online movie ticket booking system to enhance user experience and increase customer satisfaction.
+
+Project Team:
+
+Product Owner: Parkavi  Arumugam
+Scrum Master:   Rohith
+Developers:   Vamsi, Vishali
+Tester:  Arun
+
+Sprint Duration: 2 weeks
+
+Backlog Items:
+
+			User Story						   Story Points
+As a user, I want to search for movies by title, genre, or actor.			3
+As a user, I want to view movie details including synopsis, cast, and showtimes.	5
+As a user, I want to select seats for a specific showtime and movie.			8	
+As a user, I want to see a seating layout with available and reserved seats.		5
+As a user, I want to add snacks and drinks to my booking.				3
+As a user, I want to view my booking summary before confirming payment.			3
+As a user, I want to securely pay for my booking using various payment methods.		8
+As a user, I want to receive a confirmation email with booking details.			3
+
+Prioritized user stories :
+
+Select seats for a specific showtime and movie (8 story points)
+Securely pay for booking using various payment methods (8 story points)
+View movie details including synopsis, cast, and showtimes (5 story points)
+See a seating layout with available and reserved seats (5 story points)
+Search for movies by title, genre, or actor (3 story points)
+View booking summary before confirming payment (3 story points)
+Add snacks and drinks to booking (3 story points)
+Receive a confirmation email with booking details (3 story points)
+
+Sprint 1 (Week 1-2):
+
+Sprint Goal: Implement functionality for movie search, viewing movie details, and selecting seats.
+
+Tasks:
+
+Frontend development for movie search interface
+Backend development for fetching movie details and showtimes
+Frontend development for displaying movie details
+Frontend development for seat selection interface
+Backend development for seat selection and availability
+Estimated Completion:
+
+Movie Search: 3 days
+Movie Details: 4 days
+Seat Selection: 5 days
+
+Sprint 2 (Week 3-4):
+
+Sprint Goal: Enhance booking experience by adding payment functionality and booking confirmation.
+
+Tasks:
+
+Frontend development for adding snacks and drinks
+Frontend integration with payment gateway
+Backend development for handling payment transactions
+Email confirmation integration
+Estimated Completion:
+
+Snacks and Drinks: 3 days
+Payment Integration: 5 days
+Email Confirmation: 2 days
+
+User Story: Search for Movies
+Acceptance Criteria:
+User can search for movies by title, genre, or actor.
+Search results are relevant and displayed in a clear format.
+Search functionality is responsive and intuitive.
+
+User Story: View Movie Details
+Acceptance Criteria:
+User can access detailed information about a selected movie including synopsis, cast, and showtimes.
+Movie details are accurate and up-to-date.
+Showtimes are presented in a user-friendly format with dates and times clearly visible.
+
+User Story: Select Seats
+Acceptance Criteria:
+User can choose seats for a specific movie and showtime.
+Available seats are clearly distinguishable from reserved seats.
+Seat selection process is smooth and intuitive, allowing for easy modifications.
+
+User Story: View Seating Layout
+Acceptance Criteria:
+User can see a visual representation of the seating layout for a selected showtime.
+Available and reserved seats are clearly marked.
+Seating layout is responsive and adjusts to different screen sizes.
+
+User Story: Add Snacks and Drinks
+Acceptance Criteria:
+User can add snacks and drinks to their booking.
+Available snacks and drinks are displayed with clear descriptions and prices.
+Snacks and drinks are added to the booking total accurately.
+
+User Story: View Booking Summary
+Acceptance Criteria:
+User can review the booking summary including selected movie, showtime, seats, snacks, drinks, and total amount.
+Booking summary is presented clearly and includes all relevant details.
+User can easily make changes to the booking if necessary before confirmation.
+
+User Story: Pay for Booking
+Acceptance Criteria:
+User can securely pay for their booking using various payment methods (e.g., credit card, PayPal).
+Payment process is smooth, with clear instructions and options.
+Payment information is encrypted and secure.
+
+User Story: Receive Confirmation Email
+Acceptance Criteria:
+User receives a confirmation email shortly after completing the booking process.
+Email contains detailed booking information including movie title, showtime, seats, snacks, drinks, and total amount.
+Email is sent to the email address provided during the booking process.
+Email format is professional and includes branding elements.

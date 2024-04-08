@@ -1,0 +1,37 @@
+      To Do	                        In Progress	                                  Done
+Search for movies	        Test movie selection (Tester)	             Pay for booking (Developer 2)
+View movie details	        Test seating layout (Tester)	             Receive confirmation email (Developer 2)
+Select seats	                Test payment process (Tester)	             View booking summary (Scrum Master)
+Add snacks/drinks	        Secure payment methods (Developer 2)	
+Secure payment methods		
+Receive confirmation email	
+	
+Developer 1 (Frontend):
+
+View movie details
+Select seats
+Add snacks/drinks
+
+Developer 2 (Backend):
+
+Secure payment methods
+Receive confirmation email
+Pay for booking
+
+Scrum Master:
+
+View booking summary
+
+Tester:
+
+Test movie selection:
+Verify that users can search for movies by title, genre, or actor.
+Check that movie details such as synopsis, cast, and showtimes are displayed correctly.
+Test seating layout:
+Ensure that users can see a seating layout with available and reserved seats.
+Verify that users can select seats for a specific showtime and movie.
+Test payment process:
+Check different payment methods for security and functionality.
+Verify that users can securely pay for their booking.
+Receive confirmation email:
+Confirm that users receive a confirmation email with accurate booking details.
