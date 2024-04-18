@@ -1,0 +1,48 @@
+
+CREATE USER 'rohit'@'localhost' IDENTIFIED BY 'Rohith';
+
+
+GRANT SELECT, INSERT, UPDATE ON myDb.* TO 'rohit'@'localhost';
+
+
+REVOKE INSERT ON myDb.* FROM 'rohit'@'localhost';
+
+
+DROP USER 'rohit'@'localhost';
+
+
+
+INSERT INTO authors (author_name, country) VALUES ('Agatha Christie', 'UK');
+
+UPDATE authors SET country = 'Canada' WHERE author_name = 'Agatha Christie';
+
+DELETE FROM authors WHERE author_name = 'George Orwell';
+
+
+INSERT INTO books (title, isbn, author_id) VALUES ('Murder on the Orient Express', '978-0007119318', 4);
+
+UPDATE books SET isbn = '978-0312981341' WHERE title = 'Murder on the Orient Express';
+
+
+INSERT INTO patrons (first_name, last_name, email) VALUES ('Emily', 'Brown', 'emilybrown@example.com');
+
+UPDATE patrons SET email = 'emily.brown@example.com' WHERE patron_id = 3;
+
+
+INSERT INTO loans (book_id, patron_id, loan_date, due_date) VALUES (3, 3, '2024-04-10', '2024-04-25');
+
+UPDATE loans SET due_date = '2024-05-10' WHERE loan_id = 3;
+
+DELETE FROM loans WHERE due_date < CURDATE();
+
+
+LOAD DATA INFILE '/c:/programs/mysql/books.csv' 
+INTO TABLE books 
+FIELDS TERMINATED BY ',' 
+LINES TERMINATED BY '\n' 
+IGNORE 1 ROWS;
+
+
+
+
+

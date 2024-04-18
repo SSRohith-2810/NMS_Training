@@ -1,0 +1,54 @@
+ACID stands for Atomicity, Consistency, Isolation, and Durability. These properties ensure that database transactions are reliable, maintain data integrity, and are resilient to failures.
+
+Atomicity: This property ensures that either all parts of a transaction are successfully completed, or if any part fails, the entire transaction is rolled back, leaving the database in its original state. It's like an "all or nothing" rule.
+
+Consistency: This means that a transaction takes the database from one valid state to another valid state. In other words, all integrity constraints and rules defined in the database schema must be maintained before and after the transaction.
+
+Isolation: This property ensures that concurrent transactions do not interfere with each other. Each transaction should appear as if it's running in isolation, even though multiple transactions may be executing concurrently.
+
+Durability: Once a transaction is committed, its changes are permanent and will not be lost, even in the event of a system failure. The changes are stored in non-volatile memory, such as disk storage.
+
+Now, let's simulate a transaction using SQL statements with locking and demonstrate different isolation levels for concurrency control. We'll create a simple scenario where two transactions try to update the same record simultaneously.
+
+First, let's create a table named accounts:
+
+
+CREATE TABLE accounts (
+    id INT PRIMARY KEY,
+    balance DECIMAL(10, 2)
+);
+
+INSERT INTO accounts (id, balance) VALUES (1, 1000.00);
+Now, let's simulate two transactions that update the balance of account 1 simultaneously but with different isolation levels.
+
+Transaction 1:
+
+START TRANSACTION;
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+
+DO SLEEP(10);
+
+COMMIT;
+
+
+Transaction 2:
+
+
+START TRANSACTION;
+
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+UPDATE accounts SET balance = balance + 100 WHERE id = 1;
+
+DO SLEEP(5);
+
+COMMIT;
+
+
+In these transactions:
+
+Transaction 1 uses the READ COMMITTED isolation level, which allows it to read committed data but may encounter non-repeatable reads.
+Transaction 2 uses the SERIALIZABLE isolation level, which provides the highest level of isolation, ensuring that transactions are serialized and cannot interfere with each other.

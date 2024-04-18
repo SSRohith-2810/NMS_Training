@@ -1,0 +1,68 @@
+1)filename="Rohit.txt"
+
+if [ -e "$filename" ]; then
+    echo "File exists"
+else
+    echo "File not found"
+fi
+
+2)while true; do
+    read -p "Enter a number (enter 0 to exit): " num
+
+    if [ "$num" -eq 0 ]; then
+        break
+    fi
+
+    if [ "$((num % 2))" -eq 0 ]; then
+        echo "$num is even"
+    else
+        echo "$num is odd"
+    fi
+done
+
+3)count_lines() {
+    local filename="$1"
+    lines=$(wc -l < "$filename")
+    echo "Number of lines in $filename: $lines"
+}
+
+count_lines "Rohit.txt"
+count_lines "Vamsi.txt"
+
+
+4)mkdir -p TestDir
+
+cd TestDir
+
+for ((i = 1; i <= 10; i++)); do
+    echo "File$i.txt" > "File$i.txt"
+done
+
+
+5)debug_mode=false
+
+while getopts ":d" opt; do
+    case $opt in
+        d)
+            debug_mode=true
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            ;;
+    esac
+done
+
+mkdir -p TestDir 2>/dev/null && cd TestDir || { echo "Error creating or accessing directory"; exit 1; }
+
+for ((i = 1; i <= 10; i++)); do
+    echo "File$i.txt" > "File$i.txt" || { echo "Error creating file File$i.txt"; exit 1; }
+done
+
+if [ "$debug_mode" = true ]; then
+    echo "Debugging mode enabled"
+    ls -l
+fi
+
+6)grep "ERROR" sample.log | awk '{print $1, $2, $3, $4, $5}'
+
+7)sed 's/Rohit/Rohith/g' Rohit.txt > Rohith.txt

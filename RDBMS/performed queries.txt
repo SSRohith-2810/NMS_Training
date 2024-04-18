@@ -1,0 +1,73 @@
+1) CREATE TABLE Customer (
+    CustomerId INT(5),
+    Cust_Name VARCHAR(20),
+    Address1 VARCHAR(30),
+    Address2 VARCHAR(30)
+);
+
+
+2)ALTER TABLE Customer
+MODIFY Cust_Name VARCHAR(30) NOT NULL;
+
+
+3)ALTER TABLE Customer
+ADD Gender VARCHAR(1),
+    Age INT(3),
+    PhoneNo INT(10);
+
+
+4)ALTER TABLE Customer RENAME TO Cust_Table;
+
+
+5)INSERT INTO Cust_Table (CustomerId, Cust_Name, Address1, Address2, Gender, Age, PhoneNo)
+VALUES (1000, 'Allen', '#115 Chicago', '#115 Chicago', 'M', 25, 7878776);
+
+INSERT INTO Cust_Table (CustomerId, Cust_Name, Address1, Address2, Gender, Age, PhoneNo)
+VALUES (1001, 'George', '#116 France', '#116 France', 'M', 25, 434524);
+
+INSERT INTO Cust_Table (CustomerId, Cust_Name, Address1, Address2, Gender, Age, PhoneNo)
+VALUES (1002, 'Becker', '#114 New York', '#114 New York', 'M', 45, 431525);
+
+
+
+6)ALTER TABLE Cust_Table
+ADD CONSTRAINT CustId_Prim PRIMARY KEY (CustomerId);
+
+
+7)CREATE TABLE Employee (
+    EMPNO INT(4) NOT NULL,
+    ENAME VARCHAR(10),
+    JOB VARCHAR(50),
+    MGR INT(4),
+    HIREDATE DATE,
+    SAL DECIMAL(7,2),
+    COMM DECIMAL(7,2),
+    DEPTNO INT(2)
+);
+
+
+8)ALTER TABLE Customer
+ADD COLUMN Gender VARCHAR(1),
+ADD COLUMN Age INT(3),
+ADD COLUMN PhoneNo INT(10);
+
+
+
+9)INSERT INTO Employee (EMPNO, ENAME, SAL, DEPTNO, JOB, MGR, HIREDATE, COMM)
+VALUES 
+    (7369, 'SMITH', 800, 20, 'Developer', 7902, '2021-02-15', NULL),
+    (7499, 'ALLEN', 1600, 30, 'Manager', 7844, '2020-05-10', NULL),
+    (7521, 'WARD', 1250, 30, 'Analyst', 7902, '2021-09-20', NULL),
+    (7566, 'JONES', 2975, 20, 'Designer', 7902, '2021-01-05', NULL),
+    (7654, 'MARTIN', 1250, 30, 'Salesman', 7902, '2022-03-15', NULL),
+    (7698, 'BLAKE', 2850, 30, 'Clerk', 7844, '2021-07-01', NULL),
+    (7782, 'CLARK', 2450, 10, 'Engineer', 7839, '2020-10-15', NULL),
+    (7788, 'SCOTT', 3000, 20, 'HR', 7902, '2022-01-20', NULL),
+    (7839, 'KING', 5000, 10, 'Consultant', NULL, '2019-06-30', NULL),
+    (7844, 'TURNER', 1500, 30, 'Tester', 7902, '2023-02-10', NULL),
+    (7876, 'ADAMS', 1100, 20, 'Administrator', 7902, '2020-11-05', NULL),
+    (7900, 'JAMES', 950, 30, 'Developer', 7902, '2022-08-20', NULL),
+    (7902, 'FORD', 3000, 20, 'Analyst', 7839, '2023-05-15', NULL),
+    (7934, 'MILLER', 1300, 10, 'Manager', 7839, '2022-04-01', NULL);
+
+

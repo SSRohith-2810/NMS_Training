@@ -1,0 +1,104 @@
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50),
+    email_address VARCHAR(100),
+    city VARCHAR(50),
+    region VARCHAR(50)
+);
+
+INSERT INTO customers (customer_id, customer_name, email_address, city, region)
+VALUES
+    (1, 'John Doe', 'johndoe@email.com', 'New York', 'East'),
+    (2, 'Jane Smith', 'janesmith@email.com', 'Los Angeles', 'West'),
+    (3, 'Michael Johnson', 'michael@email.com', 'Chicago', 'Midwest');
+
+
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    order_value DECIMAL(10, 2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+INSERT INTO orders (order_id, customer_id, order_date, order_value)
+VALUES
+    (1, 1, '2024-04-15', 150.00),
+    (2, 2, '2024-04-16', 200.00),
+    (3, 1, '2024-04-16', 120.00);
+
+
+
+SELECT * FROM customers WHERE city = 'New York';
+
+SELECT customer_name, email_address FROM customers WHERE city = 'New York';
+
+
+
+SELECT * FROM customers
+INNER JOIN orders ON customers.customer_id = orders.customer_id
+WHERE customers.region = 'East';
+
+
+SELECT * FROM customers
+LEFT JOIN orders ON customers.customer_id = orders.customer_id
+WHERE customers.region = 'East';
+
+
+
+SELECT * FROM customers
+WHERE customer_id IN (
+    SELECT customer_id FROM orders
+    GROUP BY customer_id
+    HAVING AVG(order_value) > (
+        SELECT AVG(order_value) FROM orders
+    )
+);
+
+
+(SELECT * FROM table1)
+UNION
+(SELECT * FROM table2);
+
+
+
+BEGIN TRANSACTION;
+
+
+INSERT INTO orders (customer_id, order_date, order_value)
+VALUES (1, '2024-04-16', 100.00);
+
+COMMIT;
+
+
+BEGIN TRANSACTION;
+
+UPDATE products
+SET product_name = 'New Product Name'
+WHERE product_id = 1;
+
+ROLLBACK;
+
+
+BEGIN TRANSACTION;
+
+
+SAVEPOINT savepoint1;
+INSERT INTO orders (customer_id, order_date, order_value)
+VALUES (1, '2024-04-16', 100.00);
+SAVEPOINT savepoint2;
+INSERT INTO orders (customer_id, order_date, order_value)
+VALUES (2, '2024-04-16', 150.00);
+
+
+ROLLBACK TO savepoint2;
+
+COMMIT;
+
+
+Transactional logs are crucial for data recovery after unexpected shutdowns. In a hypothetical scenario, let's say a database server abruptly shuts down during a critical update process. Without transaction logs, the changes made since the last successful backup could be lost, leading to data inconsistency.
+
+However, with transaction logs, the system can recover by replaying the logged transactions that were not yet committed or rolled back at the time of the shutdown. This ensures that the database can be restored to a consistent state, preserving data integrity.
+
+The use of transaction logs also enables point-in-time recovery, allowing administrators to restore the database to a specific moment before the shutdown occurred, minimizing data loss and downtime.
